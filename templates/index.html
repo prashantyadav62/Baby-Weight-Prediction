@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Weight Prediction</title>
+    <style>
+        /* General page setup */
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Form container */
+        form {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            width: 320px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #5563DE;
+            box-shadow: 0 0 6px rgba(85, 99, 222, 0.5);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: none;
+            background: #5563DE;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #3742a1;
+        }
+
+        /* Add slight responsiveness */
+        @media (max-width: 400px) {
+            form {
+                width: 90%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Predict Baby Weight</h1>
+        <form action="/predict" method="POST">
+            <label>Gestation</label>
+            <input name="gestation" type="number">
+
+            <label>Parity</label>
+            <input name="parity" type="number">
+
+            <label>Age</label>
+            <input name="age" type="number">
+
+            <label>Height</label>
+            <input name="height" type="number">
+
+            <label>Weight</label>
+            <input name="weight" type="number">
+
+            <label>Smoke</label>
+            <input name="smoke" type="number">
+
+            <button>Predict Baby Weight</button>
+        </form>
+        <h3>Predicted Baby Weight: {{ prediction }}</h3>
+    </div>
+</body>
+</html>
